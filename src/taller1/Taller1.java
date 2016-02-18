@@ -16,14 +16,16 @@ public class Taller1 {
      * @param args the command line arguments
      */
     public static final String[] options = { "Ingreso Ejercito", "Verificar Par o Impar", "Compra", "Operacion Matematica", "Salir" };
+    public static final String[] mathOps = { "Suma", "Resta", "Multiplicacion", "Division" };
     
     public static void main(String[] args) {
         // TODO code application logic here
-        int age,number,purchaseValue;
-        String option,name,lastName;
+        int age,number,purchaseValue,firstNumber,secondNumber;
+        String option,name,lastName,mathematicalOperation;
         JoinTheArmy army;
         VerifyNumber evenNumber;
         Purchase buy;
+        MathOps math;
         JFrame frame = new JFrame("Input Dialog Example 3");
         //option = Integer.parseInt(JOptionPane.showInputDialog(null,"Seleccione la opción deseada","Digite el primer numero",JOptionPane.INFORMATION_MESSAGE));
         option = (String) JOptionPane.showInputDialog(frame, 
@@ -54,7 +56,18 @@ public class Taller1 {
                     JOptionPane.showMessageDialog(null, buy.showMessage());
                     break;
                 case "Operacion Matematica":
-                    Integer.parseInt(JOptionPane.showInputDialog(null,null,"Operacion matematica"));
+                    firstNumber = Integer.parseInt(JOptionPane.showInputDialog(null,null,"ingrese el primer numero"));
+                    secondNumber = Integer.parseInt(JOptionPane.showInputDialog(null,null,"ingrese el segundo numero"));
+                    mathematicalOperation = (String) JOptionPane.showInputDialog(frame, 
+                        "¿Qué operacion quiere ejecutar?",
+                        "Seleccione",
+                        JOptionPane.QUESTION_MESSAGE, 
+                        null, 
+                        mathOps, 
+                        mathOps[0]);
+                    math = new MathOps(firstNumber, secondNumber, mathematicalOperation);
+                    math.operation();
+                    JOptionPane.showMessageDialog(null, math.getMessage());
                     break;
             }
             option = (String) JOptionPane.showInputDialog(frame, 
