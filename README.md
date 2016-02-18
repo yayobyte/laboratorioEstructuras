@@ -1,0 +1,2 @@
+# laboratorioEstructuras
+Solo academico
