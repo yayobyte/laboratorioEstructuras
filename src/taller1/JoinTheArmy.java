@@ -9,11 +9,11 @@ package taller1;
  *
  * @author salak402
  */
-public class IngresoEjercito {
+public class JoinTheArmy {
     private int age;
     private String name;
     
-    public IngresoEjercito (int age, String name){
+    public JoinTheArmy (int age, String name){
         this.age = age;
         this.name = name;
     }

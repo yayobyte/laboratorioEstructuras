@@ -19,8 +19,10 @@ public class Taller1 {
     
     public static void main(String[] args) {
         // TODO code application logic here
-        int age;
-        String option;
+        int age,number;
+        String option,name;
+        JoinTheArmy army;
+        VerifyNumber evenNumber;
         JFrame frame = new JFrame("Input Dialog Example 3");
         //option = Integer.parseInt(JOptionPane.showInputDialog(null,"Seleccione la opción deseada","Digite el primer numero",JOptionPane.INFORMATION_MESSAGE));
         option = (String) JOptionPane.showInputDialog(frame, 
@@ -30,17 +32,18 @@ public class Taller1 {
             null, 
             options, 
             options[0]);
-        String name;
         while (option!= "Salir"){
             switch (option){
                 case "Ingreso Ejercito" : 
                     name = JOptionPane.showInputDialog(null,null,"Digite su nombre");
                     age = Integer.parseInt(JOptionPane.showInputDialog(null,null,"Digite su edad"));
-                    IngresoEjercito ejercito = new IngresoEjercito (age,name);
-                    JOptionPane.showMessageDialog(null, ejercito.validateEntrance());
+                    army = new JoinTheArmy (age,name);
+                    JOptionPane.showMessageDialog(null, army.validateEntrance());
                     break;
                 case  "Verificar Par o Impar" :
-                    Integer.parseInt(JOptionPane.showInputDialog(null,null,"Numero par o inpar"));
+                    number = Integer.parseInt(JOptionPane.showInputDialog(null,null,"ingrese el numero"));
+                    evenNumber = new VerifyNumber (number);
+                    JOptionPane.showMessageDialog(null, evenNumber.sendMessage());
                     break;
                 case "Compra" :
                     Integer.parseInt(JOptionPane.showInputDialog(null,null,"Puede comprar"));
@@ -56,7 +59,6 @@ public class Taller1 {
                 null, 
                 options, 
                 options[0]);
-            
         }
         JOptionPane.showMessageDialog(frame, "Gracias por usar nuestros servicios");
         Runtime.getRuntime().exit(0);
